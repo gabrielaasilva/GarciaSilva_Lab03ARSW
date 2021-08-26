@@ -23,8 +23,8 @@ public class Main {
     public static void main(String[] args) throws BlueprintNotFoundException {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("blueprintsContext.xml");
         BlueprintsServices blueprintsServices = applicationContext.getBean(BlueprintsServices.class);
-        //Set<Blueprint> allBlueprints = blueprintsServices.getAllBlueprints();
-        //blueprintsServices.getBlueprint("sebana2021", "blueprin1");
+        Set<Blueprint> allBlueprints = blueprintsServices.getAllBlueprints();
+        blueprintsServices.getBlueprint("sebana2021", "blueprin1");
         System.out.println("BREAK");
     }
 }
