@@ -10,6 +10,7 @@ import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -68,6 +69,46 @@ public class InMemoryPersistenceTest {
                 
         
     }
+    
+    @Test
+    public void deberiaBuscarPorPlano_Nombre()   {
+        InMemoryBlueprintPersistence ibpp=new InMemoryBlueprintPersistence();
+        Point[] pts=new Point[]{new Point(0, 0),new Point(10, 10)};
+        Blueprint bp=new Blueprint("john", "thepaint",pts);
+
+        try {
+            ibpp.saveBlueprint(bp);
+            Blueprint blueprint =ibpp.getBlueprint("john","thepaint");
+
+            assertEquals(blueprint, bp);
+        } catch (Exception ex) {
+            fail("Fallo erroneo");
+        }
+    }
+
+    @Test
+    public void deberiaBuscarPorAutorBprints() {
+        InMemoryBlueprintPersistence ibpp = new InMemoryBlueprintPersistence();
+        Point[] pts = new Point[]{new Point(0, 0), new Point(10, 10)};
+        Blueprint bp = new Blueprint("john", "thepaint", pts);
+
+        try {
+            ibpp.saveBlueprint(bp);
+            Set<Blueprint> blueprints = ibpp.getBlueprintsByAuthor("john");
+
+            assertEquals(blueprints.size(), 1);
+            bp = new Blueprint("john", "thepaint2", new Point[]{new Point(11, 11), new Point(20, 20)});
+            ibpp.saveBlueprint(bp);
+            blueprints = ibpp.getBlueprintsByAuthor("john");
+
+            assertEquals(blueprints.size(), 2);
+
+        } catch (Exception ex) {
+            fail("Fallo erroneo");
+        }
+    }
+    
+    
 
 
     

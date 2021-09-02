@@ -14,6 +14,7 @@ public class Blueprint {
     private List<Point> points=null;
     
     private String name=null;
+    
             
     public Blueprint(String author,String name,Point[] pnts){
         this.author=author;
@@ -28,7 +29,9 @@ public class Blueprint {
 
     public Blueprint() {
     }    
-    
+    public void setPoints(List<Point> p){
+        this.points = p;
+    }
     public String getName() {
         return name;
     }
@@ -55,6 +58,8 @@ public class Blueprint {
         int hash = 7;
         return hash;
     }
+    
+    
 
     @Override
     public boolean equals(Object obj) {
