@@ -11,6 +11,7 @@ import java.util.List;
 /**
  *
  * @author jgarc
+ * @author agsilva
  */
 public class FiltroRedundancia implements Filtro {
     @Override

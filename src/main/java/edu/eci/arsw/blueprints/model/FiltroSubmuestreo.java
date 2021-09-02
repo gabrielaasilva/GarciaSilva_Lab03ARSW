@@ -11,6 +11,7 @@ import java.util.List;
 /**
  *
  * @author jgarc
+ * @author agsilva
  */
 public class FiltroSubmuestreo implements Filtro {
     @Override

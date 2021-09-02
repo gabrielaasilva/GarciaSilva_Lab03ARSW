@@ -8,7 +8,9 @@ package edu.eci.arsw.blueprints.model;
 /**
  *
  * @author jgarc
+ * @author agsilva
  */
+
 public interface Filtro {
     public Blueprint filtrado(Blueprint bp); 
 }

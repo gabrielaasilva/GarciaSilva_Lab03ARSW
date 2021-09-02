@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author jgarc
+ * @author agsilva
  */
 public class FiltroSubmuestreoTest {
     public InMemoryBlueprintPersistence ibpp = new InMemoryBlueprintPersistence(); 
